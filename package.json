@@ -1,0 +1,17 @@
+{
+  "name": "vibecheckapp",
+  "version": "1.0.0",
+  "description": "random vibe generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "spotify",
+    "music",
+    "playlist",
+    "vibrations"
+  ],
+  "author": "Harrison Nam",
+  "license": "ISC"
+}
