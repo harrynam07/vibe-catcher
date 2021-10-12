@@ -2,7 +2,7 @@
   "name": "vibecheckapp",
   "version": "1.0.0",
   "description": "random vibe generator",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test sepcified\" && exit 1",
     "build": "webpack",
@@ -22,11 +22,14 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.2",
+    "nodemon": "^2.0.13",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
