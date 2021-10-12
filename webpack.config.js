@@ -6,7 +6,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.join(__dirname, 'public')
     },
-    mode: 'production',
+    mode: 'development',
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -15,6 +15,6 @@ module.exports = {
         }]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        static: path.join(__dirname, 'public')
     }
 };
