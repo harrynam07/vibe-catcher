@@ -1,15 +1,14 @@
 import React from 'react';
 
-const Button = (props) => {
+const Button = ( { handleClick }) => {
   return (
+    
     <div>
-      <h4>Feeling lucky?</h4>
-      <div>
-        <form>
-          <input type='button' value='Find Vibration'></input>
-        </form>
-      </div>
+      <form>
+        <input type='button' value='Catch a Vibration' onClick={handleClick}></input>
+      </form>
     </div>
+
   )
   ;
 };

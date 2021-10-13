@@ -3,10 +3,12 @@ import Button from '../button.js';
 import TrackDisplay from './trackDisplay';
 import FavoriteList from '../favoriteList';
 
-const MainContainer = () => {
+const MainContainer = ( { handleClick }) => {
   return (
     <div>
-      <Button/>
+      <Button
+        handleClick={handleClick}
+      />
       <TrackDisplay/>
       <FavoriteList/>
     </div>
