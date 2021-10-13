@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button.js'
-import TrackDisplay from '../containers/trackDisplay'
+import TrackDisplay from './trackDisplay'
 
 const MainContainer = (props) => {
     return (

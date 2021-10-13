@@ -11,11 +11,17 @@ module.exports = {
     },
     mode: process.env.NODE_ENV,
     module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        }]
+        rules: [
+            {
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+    ]
     },
     devServer: {
         static: path.join(__dirname, 'public'),
