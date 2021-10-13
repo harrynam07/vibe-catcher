@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const spotifyController = require('../controllers/spotifyController');
 
 //store client ID and client secret for Spotify API calls
 const CLIENT_ID = 'c1f1711630d54c4cac579bea402f2253';
@@ -24,7 +25,13 @@ const generateUrl = (url) => {
 };
 //get request for initial authorization 
 router.get('/', (req, res) => {
-  return res.redirect(generateUrl(authorize));
+  res.redirect(generateUrl(authorize));
+  return res.get('/callback');
+});
+
+//post requests for access token
+router.get('/callback', (req, res) => {
+  console.log(req.body);
 });
 
 module.exports = router;

@@ -12,13 +12,14 @@ class App extends Component {
   }
 
   handleClick() {
-    fetch('http://localhost:8080/api', {
-      mode: 'no-cors'
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch( err => console.log('request error:', err)); 
+    window.location.href = 'http://localhost:8080/api';
+    // fetch('http://localhost:8080/api', {
+    //   mode: 'no-cors'
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch( err => console.log('request error:', err)); 
   }
 
   render() {
