@@ -1,6 +1,7 @@
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { webpack } = require('webpack');
+console.log(`this is currently on ${process.env.NODE_ENV} mode`);
 
 module.exports = {
     entry: './src/app.js',
@@ -8,7 +9,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.join(__dirname, 'public')
     },
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -21,6 +22,9 @@ module.exports = {
         compress: true,
         port: 8080,
         allowedHosts: 'auto',
+        proxy: {
+            '/api': 'http://localhost:3000',
+        }
     },
     // plugins: [new HtmlWebpackPlugin({
     //     template: 'index.html'

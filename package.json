@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test sepcified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "watch": "webpack --watch"
   },
   "keywords": [
