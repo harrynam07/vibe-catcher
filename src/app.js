@@ -12,8 +12,12 @@ class App extends Component {
   }
 
   handleClick() {
-    fetch('http://localhost:8080/api')
-      .then(console.log('request sent'))
+    fetch('http://localhost:8080/api', {
+      mode: 'no-cors'
+    })
+      .then((res) => {
+        console.log(res);
+      })
       .catch( err => console.log('request error:', err)); 
   }
 
