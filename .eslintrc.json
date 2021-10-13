@@ -1,22 +1,31 @@
 {
+    "root": true,
+    "ignorePatterns": ["**/test", "**/__tests__"],
     "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+      "node": true,
+      "browser": true,
+      "es2021": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
+    "plugins": ["react"],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest"
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
+      "indent": ["warn", 2],
+      "no-unused-vars": ["off", { "vars": "local" }],
+      "no-case-declarations": "off",
+      "prefer-const": "warn",
+      "quotes": ["warn", "single"],
+      "react/prop-types": "off",
+      "semi": ["warn", "always"],
+      "space-infix-ops": "warn"
+    },
+    "settings": {
+      "react": { "version": "detect"}
     }
-}
+  } 
+  
