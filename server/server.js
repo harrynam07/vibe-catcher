@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const PORT = 3000;
 
+//require router for spotify api
+const apiRouter = require('./routes/api');
+
 //handle parsing request body
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -16,10 +19,8 @@ app.get('/', (req, res) => {
 });
 
 //test get request to /api
-app.get('/api', (req, res) => {
-  console.log('request received');
-  res.status(201).send('Lets gooo');
-});
+app.use('/api', apiRouter);
+
 //server listening on port 3000
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
