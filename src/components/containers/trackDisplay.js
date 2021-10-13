@@ -1,14 +1,10 @@
 import React from 'react';
+import TrackCard from '../trackCard';
 
 const TrackDisplay = () => {
     return (
         <div>
-            <ul>
-                <li>Title:</li>
-                <li>Artist:</li>
-                <li>Album:</li>
-                <li>Album Cover</li>
-            </ul>
+          <TrackCard/>
         </div>
     );
 };
