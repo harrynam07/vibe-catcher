@@ -14,8 +14,9 @@ const redirect_uri = 'http://localhost:8080';
 
 //spotify endpoints:
 const authorize = 'https://accounts.spotify.com/authorize';
+const token = 'https://accounts.spotify.com/api/token';
 
-const generateUrl = (url) => {
+const generateAuthUrl = (url) => {
   url += '?client_id=' + CLIENT_ID;
   url += '&response_type=code';
   url += '&redirect_uri=' + redirect_uri;
@@ -23,15 +24,24 @@ const generateUrl = (url) => {
   url += '&scope=' + scopes;
   return url;
 };
+
+const generateTokenUrl = (url) => {
+
+};
+
 //get request for initial authorization 
 router.get('/', (req, res) => {
-  res.redirect(generateUrl(authorize));
-  return res.get('/callback');
+  // console.log(res);
+  //res.req.headers.referer
+  console.log('auth request received', res);
+  const url = generateAuthUrl(authorize);
+  res.redirect(url);
+    
 });
 
 //post requests for access token
-router.get('/callback', (req, res) => {
-  console.log(req.body);
-});
+// router.post(token, (req, res) => {
+//   console.log(req.body);
+// });
 
 module.exports = router;

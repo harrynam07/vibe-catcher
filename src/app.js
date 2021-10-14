@@ -16,9 +16,7 @@ class App extends Component {
     // fetch('http://localhost:8080/api', {
     //   mode: 'no-cors'
     // })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
+    //   .then(res => console.log(res.location))
     //   .catch( err => console.log('request error:', err)); 
   }
 

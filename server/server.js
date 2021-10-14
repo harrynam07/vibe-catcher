@@ -14,11 +14,9 @@ app.use(express.urlencoded({extended: true}));
 // app.use(express.static(path.resolve(__dirname, '../public')));
 
 //testing server
-app.get('/', (req, res) => {
-  res.status(200).send('Hello World');
-});
+// app.get('/', apiRouter);
 
-//test get request to /api
+// //test get request to /api
 app.use('/api', apiRouter);
 
 //server listening on port 3000
