@@ -3,7 +3,7 @@ import Button from '../button.js';
 import TrackDisplay from './trackDisplay';
 import FavoriteList from '../favoriteList';
 
-const MainContainer = ( { handleClick, fetchSong }) => {
+const MainContainer = ( { link, display, title, artist, album, art, handleClick, fetchSong }) => {
   return (
     <div>
       <div id='main'>
@@ -11,7 +11,14 @@ const MainContainer = ( { handleClick, fetchSong }) => {
           handleClick={handleClick}
           fetchSong={fetchSong}
         />
-        <TrackDisplay/>
+        <TrackDisplay
+          title={title}
+          artist={artist}
+          album ={album}
+          art={art}
+          display={display}
+          link={link}
+        />
         <FavoriteList/>
       </div>
     </div>

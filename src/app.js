@@ -28,67 +28,65 @@ const generateAuthUrl = (url) => {
 };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      title: '',
+      artist: '',
+      link: '',
+      album: '',
+      art: '',
+      display: false
+    };
+
     this.handlClick = this.handleClick.bind(this);
     this.fetchSong = this.fetchSong.bind(this);
+    this.playTrack = this.playTrack.bind(this);
   }
 
   handleClick() {
     window.location.href = 'http://localhost:8080/api';
-    // window.onload = console.log(window.location.href);
-    // fetch(generateAuthUrl(authorize), {
-    //   mode: 'no-cors'
-    // })
-    //   .then(() => console.log(''))
-    //   .catch( err => console.log('request error:', err)); 
+    
   }
 
+  playTrack(url) {
+    new Audio(url).play();
+  }
+  
   fetchSong() {
     fetch('http://localhost:8080/api/track')
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        // console.log(data);
+
+        this.setState({
+          title: data.title,
+          artist: data.artist,
+          link: data.link,
+          album: data.album.name,
+          art: data.album.images[0].url,
+          display: true
+        });
+
+        console.log(this.state);
+      })
+      // .then(() => {this.playTrack(this.state.link);})
       .catch(err => console.log('error grabbing track', err));
-    // .then(response => response.body)
-    // .then(body => {
-    //   const reader = body.getReader();
-
-    //   return new ReadableStream({
-    //     start(controller) {
-    //       return pump();
-
-    //       function pump() {
-    //         return reader.read().then(({ done, value }) => {
-    //           // When no more data needs to be consumed, close the stream
-    //           if (done) {
-    //             controller.close();
-    //             return;
-    //           }
-
-    //           // Enqueue the next data chunk into our target stream
-    //           controller.enqueue(value);
-    //           return pump();
-    //         });
-    //       }
-    //     }
-    //   });
-    // })
-    // .then(stream => new Response(stream))
-    // .then(response => console.log(response))
-    // .catch(err => console.error(err));
+    // .
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:8080/api/track')
-  //     // .then((response) => response.json())
-  //     .then((data) => console.log(JSON.stringify(data)))
-  //     .catch(err => console.log('error grabbing track', err));
-  // }
+
   render() {
     return (
       <div>
         <h1 id='title'>Vibe Catcher</h1>
         <MainContainer
+          title={this.state.title}
+          artist={this.state.artist}
+          album={this.state.album}
+          art={this.state.art}
+          link={this.state.link}
+          display={this.state.display}
           handleClick={this.handleClick}
           fetchSong={this.fetchSong}
         />

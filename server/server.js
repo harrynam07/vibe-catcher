@@ -79,10 +79,11 @@ app.get('/api/track', (req, res) => {
       
       const trackInfo = {
         title: data.body.item.name,
-        artist: data.body.item.artists,
+        artist: data.body.item.artists[0].name,
         link: data.body.item.href,
         album: data.body.item.album
       };
+      console.log(data.body.item.artists[0]);
       // console.log(trackInfo);
       res.locals.trackInfo = trackInfo;
       // return res.status(205).json(res.locals.trackInfo);
@@ -132,7 +133,7 @@ app.get('/api/callback', (req, res) => {
     })
     .then(res.redirect(301, 'http://localhost:8080'))
     .catch(error => {
-      console.error('Error getting Tokesn', error);
+      console.error('Error getting Tokens', error);
       res.send(`Error getting Tokens: ${error}`);
     });
 });
