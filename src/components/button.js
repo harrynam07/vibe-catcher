@@ -6,10 +6,11 @@ const Button = ( { handleClick, fetchSong }) => {
     <div>
       <form>
         <div>
-          <input type='button' value='Connect to Spotify' onClick={handleClick}></input>
+          <input id='btn' type='button' value='Connect to Spotify' onClick={handleClick}></input>
         </div>
+        <br></br>
         <div>
-          <input type='button' value='Catch a Vibration' onClick={fetchSong}></input>
+          <input id='btn' type='button' value='Catch a Vibration' onClick={fetchSong}></input>
         </div>
       </form>
     </div>

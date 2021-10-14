@@ -3,11 +3,11 @@ import React from 'react';
 const TrackCard = () => {
   return(
     <div>
-      <ul>
+      <ul id='trackinfo'>
         <li>Title:</li>
         <li>Artist:</li>
         <li>Album:</li>
-        <li>Album Cover</li>
+        <li></li>
       </ul>
     </div>
         

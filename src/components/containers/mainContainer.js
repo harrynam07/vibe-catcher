@@ -6,12 +6,14 @@ import FavoriteList from '../favoriteList';
 const MainContainer = ( { handleClick, fetchSong }) => {
   return (
     <div>
-      <Button
-        handleClick={handleClick}
-        fetchSong={fetchSong}
-      />
-      <TrackDisplay/>
-      <FavoriteList/>
+      <div id='main'>
+        <Button
+          handleClick={handleClick}
+          fetchSong={fetchSong}
+        />
+        <TrackDisplay/>
+        <FavoriteList/>
+      </div>
     </div>
   );
 };

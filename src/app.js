@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import styles from '../styles.scss';
 
 import MainContainer from './components/containers/mainContainer';
 // import Button from './components/button.js';
@@ -45,13 +46,48 @@ class App extends Component {
 
   fetchSong() {
     fetch('http://localhost:8080/api/track')
-      .then((response) => console.log('response received', response))
+      .then((response) => response.json())
+      .then((data) => console.log(data))
       .catch(err => console.log('error grabbing track', err));
+    // .then(response => response.body)
+    // .then(body => {
+    //   const reader = body.getReader();
+
+    //   return new ReadableStream({
+    //     start(controller) {
+    //       return pump();
+
+    //       function pump() {
+    //         return reader.read().then(({ done, value }) => {
+    //           // When no more data needs to be consumed, close the stream
+    //           if (done) {
+    //             controller.close();
+    //             return;
+    //           }
+
+    //           // Enqueue the next data chunk into our target stream
+    //           controller.enqueue(value);
+    //           return pump();
+    //         });
+    //       }
+    //     }
+    //   });
+    // })
+    // .then(stream => new Response(stream))
+    // .then(response => console.log(response))
+    // .catch(err => console.error(err));
   }
+
+  // componentDidMount() {
+  //   fetch('http://localhost:8080/api/track')
+  //     // .then((response) => response.json())
+  //     .then((data) => console.log(JSON.stringify(data)))
+  //     .catch(err => console.log('error grabbing track', err));
+  // }
   render() {
     return (
       <div>
-        <h1>Vibe Catcher</h1>
+        <h1 id='title'>Vibe Catcher</h1>
         <MainContainer
           handleClick={this.handleClick}
           fetchSong={this.fetchSong}

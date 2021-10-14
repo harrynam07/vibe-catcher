@@ -69,8 +69,25 @@ app.get('/api/track', (req, res) => {
   spotifyApi.getMyCurrentPlayingTrack(access)
     .then( (data) => {
       console.log('data received', data);
-      res.status(205).send(data);
+
+      // res.locals.title = data.body.item.name;
+      // res.locals.artist = data.body.item.artists;
+      // res.locals.link = data.body.item.href;
+      // res.locals.album = data.body.item.album;
+      // console.log('sending data', typeof res.locals);
+
+      
+      const trackInfo = {
+        title: data.body.item.name,
+        artist: data.body.item.artists,
+        link: data.body.item.href,
+        album: data.body.item.album
+      };
+      // console.log(trackInfo);
+      res.locals.trackInfo = trackInfo;
+      // return res.status(205).json(res.locals.trackInfo);
     })
+    .then( () => res.status(200).json(res.locals.trackInfo))
     .catch( (err) => {
       console.log('error grabbing track info', err);
     });
