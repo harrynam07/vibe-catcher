@@ -33,9 +33,9 @@ const generateTokenUrl = (url) => {
 router.get('/', (req, res) => {
   // console.log(res);
   //res.req.headers.referer
-  console.log('auth request received', res);
-  const url = generateAuthUrl(authorize);
-  res.redirect(url);
+  console.log('auth request received');
+  // console.log(window.location.search);
+  res.redirect(generateAuthUrl(authorize));
     
 });
 

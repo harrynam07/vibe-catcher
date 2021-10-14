@@ -5,7 +5,12 @@ const Button = ( { handleClick }) => {
     
     <div>
       <form>
-        <input type='button' value='Catch a Vibration' onClick={handleClick}></input>
+        <div>
+          <input type='button' value='Connect to Spotify' onClick={handleClick}></input>
+        </div>
+        <div>
+          <input type='button' value='Catch a Vibration'></input>
+        </div>
       </form>
     </div>
 

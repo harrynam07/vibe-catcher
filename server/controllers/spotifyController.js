@@ -14,6 +14,7 @@ const redirect_uri = 'http://localhost:8080';
 
 //spotify endpoints:
 const authorize = 'https://accounts.spotify.com/authorize';
+const token = 'https://accounts.spotify.com/api/token';
 
 const generateUrl = (url) => {
   url += '?client_id=' + CLIENT_ID;
@@ -26,6 +27,12 @@ const generateUrl = (url) => {
 
 spotifyController.authorize = (req, res, next) => {
   return res.status(202).redirect(generateUrl(authorize));
+  //can I put my get request to spotify in here? 
+  //save the 'code' on my res.locals and pass to token request
+};
+
+spotifyController.requestToken = (req, res, next) => {
+    
 };
 
 module.exports = spotifyController;
