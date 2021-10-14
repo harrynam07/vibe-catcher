@@ -28,6 +28,8 @@ const redirect_uri = 'http://localhost:8080/api/callback';
 //spotify endpoints:
 const authorize = 'https://accounts.spotify.com/authorize';
 
+let access;
+let refresh;
 
 const generateAuthUrl = (url) => {
   url += '?client_id=' + CLIENT_ID;
@@ -61,6 +63,20 @@ app.get('/api', (req, res) => {
     
 });
 
+//Catch a vibe button 
+app.get('/api/track', (req, res) => {
+  // console.log(access);
+  spotifyApi.getMyCurrentPlayingTrack(access)
+    .then( (data) => {
+      console.log('data received', data);
+      res.status(205).send(data);
+    })
+    .catch( (err) => {
+      console.log('error grabbing track info', err);
+    });
+});
+
+
 app.get('/api/callback', (req, res) => {
   const error = req.query.error;
   const code = req.query.code;
@@ -83,9 +99,9 @@ app.get('/api/callback', (req, res) => {
       spotifyApi.setAccessToken(access_token);
       spotifyApi.setRefreshToken(refresh_token);
 
-      res.locals.access_token = access_token;
-      res.locals.refresh_token = refresh_token;
-      
+      access = access_token;
+      refresh = refresh_token;
+
       // //store tokens on cookies
       // res.cookie('access_token', access_token);
       // res.cookie('refresh_token', refresh_token);

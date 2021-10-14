@@ -30,7 +30,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handlClick = this.handleClick.bind(this);
-    
+    this.fetchSong = this.fetchSong.bind(this);
   }
 
   handleClick() {
@@ -43,12 +43,18 @@ class App extends Component {
     //   .catch( err => console.log('request error:', err)); 
   }
 
+  fetchSong() {
+    fetch('http://localhost:8080/api/track')
+      .then((response) => console.log('response received', response))
+      .catch(err => console.log('error grabbing track', err));
+  }
   render() {
     return (
       <div>
         <h1>Vibe Catcher</h1>
         <MainContainer
           handleClick={this.handleClick}
+          fetchSong={this.fetchSong}
         />
       </div>
     );

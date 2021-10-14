@@ -3,11 +3,12 @@ import Button from '../button.js';
 import TrackDisplay from './trackDisplay';
 import FavoriteList from '../favoriteList';
 
-const MainContainer = ( { handleClick }) => {
+const MainContainer = ( { handleClick, fetchSong }) => {
   return (
     <div>
       <Button
         handleClick={handleClick}
+        fetchSong={fetchSong}
       />
       <TrackDisplay/>
       <FavoriteList/>

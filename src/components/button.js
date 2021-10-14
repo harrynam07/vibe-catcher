@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ( { handleClick }) => {
+const Button = ( { handleClick, fetchSong }) => {
   return (
     
     <div>
@@ -9,7 +9,7 @@ const Button = ( { handleClick }) => {
           <input type='button' value='Connect to Spotify' onClick={handleClick}></input>
         </div>
         <div>
-          <input type='button' value='Catch a Vibration'></input>
+          <input type='button' value='Catch a Vibration' onClick={fetchSong}></input>
         </div>
       </form>
     </div>

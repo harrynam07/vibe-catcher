@@ -29,8 +29,8 @@ module.exports = {
     port: 8080,
     allowedHosts: 'auto',
     proxy: {
-      // '/api': 'http://localhost:3000',
-      '*' : 'http://localhost:3000'
+      '/api': 'http://localhost:3000',
+      // '*' : 'http://localhost:3000'
     }
   },
   // plugins: [new HtmlWebpackPlugin({
