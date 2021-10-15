@@ -6,7 +6,6 @@ const TrackCard = ({ link, display, title, album, artist, art }) => {
       <div>
         <ul id='trackinfo'>
           <h2>Vibing to: </h2>
-          <br></br>
           <li>Title: {title}</li>
           <li>Artist: {artist}</li>
           <li>Album: {album}</li>
